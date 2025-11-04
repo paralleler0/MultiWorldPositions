@@ -8,6 +8,9 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
 
 rootProject.name = 'multiworldpositions'
-include 'mod-1.21.4', 'mod-1.21.9'
+include 'mod-1.21.4', 'mod-1.21.9', 'mod-1.21.10'
