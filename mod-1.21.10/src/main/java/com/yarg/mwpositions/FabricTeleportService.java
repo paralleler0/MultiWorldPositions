@@ -28,7 +28,7 @@ public class FabricTeleportService implements TeleportService {
 
             net.minecraft.server.command.ServerCommandSource src = player.getCommandSource().withSilent();
             String cmd = "execute in " + targetDimKey + " run tp @s ~ ~ ~";
-            player.getCommandSource().getServer().getCommandManager().executeWithPrefix(src, cmd);
+            player.getCommandSource().getServer().getCommandManager().parseAndExecute(src, cmd);
 
             if (MultiWorldPositions.getConfig().debugMode) {
                 String afterKey = player.getEntityWorld().getRegistryKey().getValue().toString();
