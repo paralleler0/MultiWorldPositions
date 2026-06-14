@@ -15,7 +15,8 @@ public class MwpCommands {
         // /survival (executor only)
         dispatcher.register(
                 literal("survival")
-                        .requires(src -> src.hasPermissionLevel(0))
+                        .requires(src -> src.hasPermission(0))
+
                         .executes(ctx -> {
                             var player = ctx.getSource().getPlayer();
                             if (player == null) return 0;
@@ -59,7 +60,7 @@ public class MwpCommands {
 
             dispatcher.register(
                     literal(cmdName)
-                            .requires(src -> src.hasPermissionLevel(0))
+                            .requires(src -> src.hasPermission(0))
                             .executes(ctx -> {
                                 var player = ctx.getSource().getPlayer();
                                 if (player == null) return 0;
