@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.yarg.mwpositions'
-version = '0.3.2+1.21.10'
+version = '0.3.2+1.21.11'
 
 repositories {
     maven { url 'https://maven.fabricmc.net/' }
@@ -12,14 +12,16 @@ repositories {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:1.21.10"
-    mappings "net.fabricmc:yarn:1.21.10+build.2:v2"
+    minecraft "com.mojang:minecraft:1.21.11"
+    mappings "net.fabricmc:yarn:1.21.11+build.1:v2"
     modImplementation "net.fabricmc:fabric-loader:0.17.3"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.138.0+1.21.10"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.138.0+1.21.11"
 }
 
 java {
-    toolchain { languageVersion = JavaLanguageVersion.of(21) }
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
     withSourcesJar()
 }
 
@@ -38,10 +40,14 @@ sourceSets {
 
 processResources {
     inputs.property "version", version
-    filesMatching('fabric.mod.json') { expand version: inputs.properties.version }
+    filesMatching('fabric.mod.json') {
+        expand version: inputs.properties.version
+    }
 }
 
 tasks.named('jar') {
     inputs.property "archivesName", project.base.archivesName
-    from(rootProject.file('LICENSE')) { rename { "${it}_multiworldpositions" } }
+    from(rootProject.file('LICENSE')) {
+        rename { "${it}_multiworldpositions" }
+    }
 }
