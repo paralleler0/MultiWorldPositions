@@ -23,7 +23,7 @@ public class FabricTeleportService implements TeleportService {
             }
 
             player.setVelocity(0, 0, 0);
-            player.setVelocityModified(true);
+            player.velocityModified = true;
             player.fallDistance = 0f;
 
             net.minecraft.server.command.ServerCommandSource src = player.getCommandSource().withSilent();
