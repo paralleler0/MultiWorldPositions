@@ -60,7 +60,7 @@ public class MwpCommands {
 
             dispatcher.register(
                     literal(cmdName)
-                            .requires(net.minecraft.server.command.CommandManager.requirePermissionLevel(0))
+                            .requires(src -> src.hasPermissionLevel(0))
                             .executes(ctx -> {
                                 var player = ctx.getSource().getPlayer();
                                 if (player == null) return 0;
