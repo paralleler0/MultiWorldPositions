@@ -78,7 +78,7 @@ public final class TeleportPlacement {
 
     private static void calm(ServerPlayerEntity player) {
         player.setVelocity(0, 0, 0);
-        player.velocityModified = true;
+        player.velocityDirty = true;
         player.fallDistance = 0f;
     }
 }
