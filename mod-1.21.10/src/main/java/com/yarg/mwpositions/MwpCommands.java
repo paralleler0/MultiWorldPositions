@@ -15,7 +15,7 @@ public class MwpCommands {
         // /survival (executor only)
         dispatcher.register(
                 literal("survival")
-               .requires(net.minecraft.server.command.CommandManager.requirePermissionLevel(0))
+                .requires(src -> src.hasPermissionLevel(0))
 
                         .executes(ctx -> {
                             var player = ctx.getSource().getPlayer();
