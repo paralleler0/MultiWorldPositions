@@ -84,3 +84,4 @@ public final class EndArrivalHelper {
             MultiWorldPositions.LOGGER.warn("[MWP] Failed to spawn Ender Dragon by command", e);
         }
     }
+}
