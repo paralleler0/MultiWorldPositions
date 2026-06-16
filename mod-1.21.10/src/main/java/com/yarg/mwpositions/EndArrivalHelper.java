@@ -73,12 +73,14 @@ public final class EndArrivalHelper {
     public static void spawnDragonIfEnabled(ServerWorld endWorld) {
         ModConfig cfg = MultiWorldPositions.getConfig();
         if (!cfg.endSpawnDragonOnArrival) return;
+
         try {
             // Summon via command at origin area. This is simple and avoids mapping-specific APIs.
             String cmd = "execute in " + endWorld.getRegistryKey().getValue() + " run summon minecraft:ender_dragon 0 80 0";
-            endWorld.getServer().getCommandSource().withLevel(4);
+            ServerCommandSource elevatedSource = endWorld.getServer().getCommandSource().withLevel(4);
+            endWorld.getServer().getCommandManager().executeWithPrefix(elevatedSource, cmd);
+            
         } catch (Exception e) {
             MultiWorldPositions.LOGGER.warn("[MWP] Failed to spawn Ender Dragon by command", e);
         }
     }
-}
