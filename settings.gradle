@@ -13,4 +13,4 @@ plugins {
 }
 
 rootProject.name = 'multiworldpositions'
-include 'mod-1.21.4', 'mod-1.21.9', 'mod-1.21.10'
+include 'mod-1.21.4', 'mod-1.21.9'
